@@ -44,7 +44,7 @@ OBJECTS=$(OBJECTS_PATH)/aboutwindow.o \
 	$(OBJECTS_PATH)/mainwindow.o \
 	$(OBJECTS_PATH)/FilterAnimelist.o \
 	$(OBJECTS_PATH)/memory.o
-QT_PATH=../../../.Qt/5.14.2/gcc_64
+QT_PATH=../../../Qt/5.14.2/gcc_64
 INCPATH=-I/usr/include \
 	-I$(SRC_PATH) \
 	-I../../build-anwalic-Desktop_Qt_5_14_2_GCC_64bit-Release \
