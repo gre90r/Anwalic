@@ -27,7 +27,7 @@ jobs:
         cached: 'false'
         aqtversion: '==0.9.4'
         py7zrversion: '==0.9.1'
-        extra: '--external 7z --outputdir ${{ github.workspace }}'
+        extra: '--external 7z'
     - name: build Anwalic
       run: ./test/1_buildAnwalic_forGithubActions.sh
     - name: build Test
