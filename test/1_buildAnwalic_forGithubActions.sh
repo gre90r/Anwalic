@@ -1,11 +1,8 @@
 #!/bin/sh
 
-###################################
-# build Anwalic before build Test #
-###################################
-
-QMAKE=$QTDIR/bin/qmake
+# Qt bin directory is added to Path by github workflow install-qt-action
+QMAKE=qmake
 
 cd ..
-$QMAKE anwalic.pro
+$QMAKE anwalic.pro -spec linux-g++
 make
