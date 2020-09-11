@@ -1,0 +1,23 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build Anwalic
+      run: ./test/1_buildAnwalic.sh
+    - name: build Test
+      run: ./test/2_buildTest.sh
+    - name: build Dependencies
+      run: ./test/3_deploy.sh
+    - name: run Test
+      run: ./test/4_runTest.sh
