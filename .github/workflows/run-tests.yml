@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: install Boost
+      run: ./ci-scripts/install-boost.sh
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
@@ -28,8 +30,6 @@ jobs:
         aqtversion: '==0.9.4'
         py7zrversion: '==0.9.1'
         extra: '--external 7z'
-    - name: install Boost
-      run: ./ci-scripts/install-boost.sh
     - name: build Anwalic
       run: ./test/1_buildAnwalic_forGithubActions.sh
     - name: build Test
