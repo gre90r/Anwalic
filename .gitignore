@@ -9,9 +9,6 @@ Anwalic_icon_2.ico
 Anwalic_icon_2.png
 anime_background_2.jpg
 
-# Anwalic test files
-test/deploy/
-
 # object files
 *.o
 
