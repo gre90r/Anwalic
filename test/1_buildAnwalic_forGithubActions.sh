@@ -4,5 +4,6 @@
 # Qt bin directory is added to Path by github workflow install-qt-action
 QMAKE=qmake
 
-$QMAKE -o Makefile ../anwalic.pro -spec linux-g++ CONFIG+=qtquickcompiler
+echo `pwd`
+$QMAKE anwalic.pro -spec linux-g++
 make
