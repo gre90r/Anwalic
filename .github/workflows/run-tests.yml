@@ -13,6 +13,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.14.2'
+        host: 'linux'
+        target: 'desktop'
+        arch: 'win64_msvc2017_64'
+        dir: '${{ github.workspace }}/.'
+        install-deps: 'true'
+        modules: 'qtcharts qtwebengine'
+        mirror: 'http://mirrors.ocf.berkeley.edu/qt/'
+        cached: 'false'
+        aqtversion: '==0.9.4'
+        py7zrversion: '==0.9.1'
+        extra: '--external 7z'
     - name: build Anwalic
       run: ./test/1_buildAnwalic.sh
     - name: build Test
