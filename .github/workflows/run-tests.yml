@@ -13,8 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: install Boost
-      run: ./ci-scripts/install-boost.sh
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
