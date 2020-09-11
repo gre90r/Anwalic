@@ -29,11 +29,7 @@ jobs:
         py7zrversion: '==0.9.1'
         extra: '--external 7z'
     - name: install Boost
-      run: wget https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.gz
-           tar -xvf boost_1_74_0.tar.gz
-           cd boost_1_74_0/
-           ./bootstrap.sh
-           ./b2 headers
+      run: ./ci-scripts/install-boost.sh
     - name: build Anwalic
       run: ./test/1_buildAnwalic_forGithubActions.sh
     - name: build Test
