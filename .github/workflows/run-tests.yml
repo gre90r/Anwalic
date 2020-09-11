@@ -17,19 +17,19 @@ jobs:
       uses: jurplel/install-qt-action@v2
       with:
         version: '5.14.2'
-        host: 'linux'
+        host: 'windows'
         target: 'desktop'
         arch: 'win64_msvc2017_64'
-        dir: '${{ github.workspace }}/.'
+        dir: '${{ github.workspace }}/'
         install-deps: 'true'
         modules: 'qtcharts qtwebengine'
         mirror: 'http://mirrors.ocf.berkeley.edu/qt/'
         cached: 'false'
         aqtversion: '==0.9.4'
         py7zrversion: '==0.9.1'
-        extra: '--external 7z'
+        extra: '--external 7z --outputdir ${{ github.workspace }}'
     - name: build Anwalic
-      run: ./test/1_buildAnwalic.sh
+      run: ./test/1_buildAnwalic_forGithubActions.sh
     - name: build Test
       run: ./test/2_buildTest.sh
     - name: build Dependencies
