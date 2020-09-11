@@ -1,0 +1,86 @@
+
+Anwalic 1.4 DevBuild 2
+----------------------
+
+	NEW FEATURES
+
+	CHANGES
+        -> removed illegal websites
+        -> added legal website wakanim.tv
+        -> removed copyright material
+            -> changed icon
+            -> set white image as standard background
+
+	BUGFIXES
+
+
+Anwalic 1.4 DevBuild 1
+----------------------
+
+	NEW FEATURES
+        -> new filter options
+            -> Show Movies Only
+
+	CHANGES
+        -> added new Websites
+            -> animefreak.tv
+
+	BUGFIXES
+
+
+
+Anwalic 1.3 DevBuild 6
+----------------------
+
+	NEW FEATURES
+
+
+	CHANGES
+        -> added new Websites
+            -> crunchyroll.com
+            -> kissanime.ru
+        -> removed Websites
+            -> pure-ani.me (does no longer exist)
+        -> renamed "Select Another List" to "Import Another List", so this is the same feature
+        -> renamed "Make Backup" to "Create Backup", so this is the same feature
+
+	BUGFIXES
+
+
+
+Anwalic 1.3 DevBuild 5
+----------------------
+
+	NEW FEATURES
+
+	CHANGES
+		-> red cross in top right corner enabled on all windows
+		-> Add New Anime Userinterface cleaned up
+
+	BUGFIXES
+		-> endless anime name. saving maximum of 200 characters now
+		-> do not move anime to completed list when not having total episode
+		-> when calling backup. response window had no icon
+		-> memory leak when closing window with ESC
+		-> in Add New Anime. Error popup didn't have a window icon
+
+
+
+Anwalic 1.3 DevBuild 4
+----------------------
+
+	NEW FEATURES
+
+	CHANGES
+		-> in "Add New Anime". First character of Anime name is always converted to uppercase
+			-> "konosuba" -> "Konosuba"
+
+	BUGFIXES
+		-> in "Show Started Animes Only" Backup was disabled.
+		-> in "Show Started Animes Only" list entry didn't pop out when clicking on "Move to Completed Animes"
+		-> in "Edit Anime" https URL could not be set
+		-> when selecting another list. file path is not displayed in completed anime list
+		-> all whitespaces are being removed when adding and editing an anime
+
+	REMOVED
+		-> Website eliteanimes.com in menubar. The Website no longer exists

@@ -1,0 +1,15 @@
+
+[DONE]remove copyright material
+    [DONE]-> standard background image
+    [DONE]-> icon image
+    
+[DONE]remove links to illegal streaming websites
+
+add Travis-CI or Circle-CI to github repo
+-> CI
+    [CURRENTLY_WORKING_ON_THIS]-> run tests
+-> CD
+    -> deploy application with
+        -> install.sh
+        -> deploy.sh
+

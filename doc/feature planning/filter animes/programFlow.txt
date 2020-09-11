@@ -1,0 +1,35 @@
+
+    +--------------------------------+
+    | FilterAnimelist - Program Flow |
+    +--------------------------------+
+
+// Prepare GUI
+1) prepareFilteredState
+    -> MainWindow::setLastUsedListItemIndex();
+    -> MainWindow::disableUiElementsForGeneralFilteredState();
+    -> MainWindow::disableUiFilterElements();
+
+// Prepare List
+2) AnwalicService::copyCurrentListToFilteredList
+
+3) filter operation
+    4) detect animes which do not match the filter
+        -> animesToPop.push_back // save them in a list
+    5) remove animes which do not match the filter
+        -> popDetectedAnimesInFilteredListAndSetFilteredState( animesToPop )
+            6) m_animelistManager.setListIsFiltered( true )
+               m_animelistManager.setListSelected( FILTERED_ANIMELIST )
+    7) refreshAnimelist()
+            
+            
+    ///////////////////////////////////////////////////////
+    // user sees filtered list and can do whatever with it
+    ///////////////////////////////////////////////////////
+    
+            
+// clear filter (By clicking on button "Clear Filter")
+8) service.clearFilteredAnimeList
+9) jumpBackToPreviousNotFilteredUiState
+10) enableUiElementsForGeneralFilteredState
+11) enableUiFilterElements
+12) refreshAnimeList

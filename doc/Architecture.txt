@@ -1,0 +1,20 @@
+
+
+                                MainWindow      (list, buttons, menus)                          PRESENTATION LAYER
+                +-------------------+
+                |                   |
+               \ /                 \ /
+           Preferences        AnwalicService    (find, filter, openURL)                         BUSINESS LOGIC LAYER
+(window position/size,              |
+ background image,                  |
+ text size)                        \ /
+                            AnimelistManager    (CRUD: add, edit, delete, get data)             DATA ACCESS LAYER
+                                    |
+                                    |
+                                   \ /
+                                Animelist       (container for anime objects)                   DATA CONTAINER
+                                    |
+                                    |
+                                   \ /
+                                  Anime         (anime information: name, URL, episodes)        DATA
+

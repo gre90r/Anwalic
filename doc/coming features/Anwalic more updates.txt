@@ -1,0 +1,112 @@
++---------------------------------------------------+
+| Update: Filtern & Sortieren & Backup & Statistics |
++---------------------------------------------------+
+   
+
+My Anime List
+-------------
+-> in My Anime List FILTERN
+    -> nach 'OVA' filtern
+        -> anhand des Anime Namens filtern
+            -> man muss selbst die Endung OVA anfügen, damit nach OVA filtern funktioniert
+                -> unter 'Help -> Filtering' wird diese und weitere Funktionen erklärt
+    -> nach 'Movie' filtern
+        -> alle Animes mit 1 Episode sind Movies. Nur diese anzeigen
+    -> nach 'Airing' filtern
+        -> sowas wie One Piece und Naruto, wo man die Anzahl der Episoden nicht kennt
+        -> Animes die noch nicht abgeschlossen sind
+        -> alle Animes anzeigen, die '??' bei Anzahl Episoden haben
+    -> nach 'Currently Watching' filtern
+        -> alle Animes anzeigen, die Current Episode > 1 haben
+    -> show currently watching animes
+-> in My Anime List SORTIEREN
+    -> nach Anzahl Episoden
+    -> nach aktueller Episode
+        -> um zu sehen, welche Animes alle angefangen wurden
+    -> alphabetisch
+    -> eine Sortierungsmethode muss immer gewählt sein
+        -> es wird kein Button zur Verfügung gestellt, um die Sortierung aufzuheben
+    
+    
+        
+ 
+Completed Animes
+---------------- 
+-> in Completed Animes FILTERN
+    -> nach Movies
+        -> alle anzeigen, die nur 1 Episode haben
+-> in Completed Animes SORTIEREN
+    -> nach Rating
+        -> Rating-System ist leider noch nicht eingefügt
+    -> nach Anzahl Episoden
+-> eine OVA nicht als Completed Anime zählen
+    -> in klammern nach Completed Animes steht ja wieviel man schon fertig hat
+        -> OVA nicht zählen, weil man in den meisten Fällen vorher den Anime komplett gesehen hat
+    
+    
+    
+  
+Anderes
+-------  
+-> sobald gefiltert wird, muss ein Button "clear filter" sichtbar gemacht werden, der alle
+   Animes wieder anzeigt, wenn man ihn betätigt
+    -> alle Animes wieder alphabetisch anzeigen  
+-> manuelle Sortierung wird nicht untersützt
+    -> man kann allerdings dem Animenamen ein Sonderzeichen voranstellen, damit er
+       ganz oben in der Liste erscheint
+        -> Nutzer darauf hinweisen
+            -> unter 'Help -> Sorting'
+-> neuer Menüpunkt 'Help -> Filtering'
+    -> es wird ein neuer Subpunkt 'Filtering' unter dem Menüpunkt 'Help' angezeigt, der
+       alles zu filtern erklärt
+-> neuer Menüpunkt 'Help -> Sorting'
+    -> es wird alles übers Sortieren erklärt
+-> generelle Bedienungsanleitung unter 'Help -> How to Use' einfügen
+-> es sollte auch nur mit Maus zu gebrauchen sein
+    -> Add New Anime
+        -> dropdown mit standard episoden anzahlen
+        -> oder aus dem eingabefeld eine combobox machen
+            -> zwei pfeile drinne wo man auf ein rauf und runter zeichen klicken kann
+
+
+
+
+Backup
+------
+-> unter 'List -> Backup' wird die Funktionalität aufgerufen
+-> es werden die Dateien 'mylist.anl' und 'mylist_completed.anl' in einen
+   Ordner 'backup' kopiert
+-> wird ein Backup gemacht, wird in dem Ordner 'backup' ein neuer Ordner mit dem
+   heutigen Datum und Uhrzeit angelegt. Darin werden die Listen-Dateien
+   'mylist.anl' und 'mylist_completed.anl' kopiert
+    -> Beispielname für Ordner im Backupordner -> 201605092341
+        -> die Zahl enthält das heutige Datum, 09.05.2016, und die Uhrzeit, 23:41
+            -> somit sind die Backups gut sortiert
+-> in 'Edit -> Preferences' einen neuen Punkt 'Backup Folder' machen
+    -> hier kann man einen eigenen Pfad eingeben, wohin die Backups kopiert werden
+        -> manche Leute wollen möglicherweise ihre Animeliste in der Dropbox speichern
+           und können somit die Dateien in ihren lokalen Dropbox Ordner kopieren lassen.
+           Wenn sich Dropbox das nächste mal synchronisiert, wird die Liste automatisch
+           in der Dropbox gesichert
+           
+           
+           
+           
+Statistics
+----------
+-> anzeigen wieviel Stunden Anime man geschaut hat
+    -> eine Anime Episode und eine OVA Episode werden mit 20 Minuten gewichtet
+    -> ein Film wird mit 90 Minuten gewichtet
+        -> viele Dokumentationen, die als Film betrachtet werden können, haben 45 Minuten
+           Laufzeit.
+        -> Anime Filme wie Chihiros Reise ins Zauberland, haben 120 Minuten Laufzeit
+        -> ein Film mit 90 Minuten zu gewichten wahrt den Durchschnitt
+
+        
+        
+GUI
+---
+-> einen extra Menüpunkt 'Anime Sites'
+    -> darunter dann alle Sites als sub Menüpunkte machen
+        -> besser als 'View -> Anime Databases in the Internet -> ...'
+           

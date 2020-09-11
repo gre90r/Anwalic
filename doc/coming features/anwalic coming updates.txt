@@ -1,0 +1,242 @@
+
+last edited: 20.12.2018
+
+           +-----------+
+BUG_LIST   | 3 Bug(s)  |
+--------   +-----------+
+-> when typing e.g. "sel" to search an anime with that beginning that anime is selected
+    -> but when hitting Episode +1 another anime will be increased
+        -> the last one selected
+    -> when typing the anime is not selected internally only in GUI
+-> when holding mouse-left on anime in animelist, you move mouse to another anime (dragging),
+   you click Episode +1, the list selects previous anime which has been selected without dragging
+-> qt assert error when deleting anime with name "^" or "^^"
+
+
+        
+
+NEW FEATURES (wichtigstes steht oben)
+------------
+-> Fensterposition merken
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 2]-> Add New Anime Bedienung soll nur mit Maus möglich sein
+    -> Radio Button einfügen
+        -> Auswahl zwischen
+            -> Eingabe von exakter Episodenanzahl
+                -> wie bereits vorhanden mit Texteingabebox realisieren
+            -> Dropdown-Menü, wo alle häufigen Episodenanzahlen vorhanden sind
+                -> { 12, 13, 24, 26 }
+                -> soll einfach mit Maus ausgewählt werden können
+                -> zu beachten ist, dass u.U. der Nutzer zu weit vom Bildschirm weg sitzt
+                    -> Zahlen müssen besonders groß sein
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 4]-> Changelog
+    -> Changelog.txt einführen
+        -> Änderungen von allen Versionen anzeigen
+        -> Bugfixes reinschreiben
+        -> New Features reinschreiben
+    -> unter Help -> Changelog
+        -> Changelog.txt als read-only anzeigen
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 1]-> filter by tag
+    -> siehe unten bei LIST
+    -> man gibt einen Text zum filtern ein
+    -> nur die Animes werden angezeigt, die diesen Text im Anime Namen beinhalten
+        -> man kann also mit Absicht Anime Namen so wählen, dass am Ende [Ger Dub] steht
+            -> dann kann man ganz einfach nach dem text "ger dub" suchen
+    -> upper lowercase insensitive
+        -> "Ger Dub" soll mit "ger dub" gefunden werden und andersrum
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 2]!! zuletzt geschauten Anime anzeigen [Oliver]
+    -> Anime in Liste markieren, damit man gleich auf Go To Stream drücken kann
+    !! Anime in config speichern und bei Programmstart ganz oben in die
+       Liste setzen. Egal wie die Liste sortiert ist
+    -> Schriftfarbe orange oder grün
+        -> eine angenehme Farbe
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 3]-> Anime Namen beim Anzeigen kürzen
+    -> Originalname, der abgespeichert wird, bleibt aber in voller Länge
+        -> wird nur in ListeView verkürzt angezeigt
+    -> zB: alles was länger als 20 Zeichen ist wird gekürzt
+    -> zB: Anime "Dungeon ni Deai o Motomeru no wa Machigatte Iru Darou ka"
+        -> wird angezeigt als "Dungeon ni Deai o Mo..."
+    -> ist als Option eingeschaltbar
+[REJECTED. maybe later]-> Fenster in Vordergrund lassen
+    -> Fenster soll immer über allen anderen Fenstern sein, wenn man auf dem UI einen Haken setzt
+    -> soll dazu gut sein, um mehrere Webseiten zu öffnen, wenn mann auf "Go To Stream" klickt, ohne
+       die ganze Zeit die Fenster wechseln zu müssen
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 3]-> nach Einfügedatum sortieren [Oliver]
+-> nach Genre filtern
+    -> dazu muss bei AddNewAnime optional mehr eingetragen werden können
+    -> dazu muss Anime Klasse, um Attribute erweitert werden
+    -> dazu muss speichern & laden umgebaut werden
+    -> VORSICHT: Programm sollte rückwertskompatibel sein oder Listen erkennen, die mit einer älteren Version erstellt worden sind
+        -> hierfür in erster Zeile einen tag mit Versionsnummer hinzufügen
+            -> z.B: [v1.4]
+                -> wenn dieser Tag nicht gefunden wird, muss die Liste mit einer Version <= 1.3 erstellt worden sein
+                -> somit kann trotzdem alles eingelesen werden, aber alle optionalen Felder sind null bzw. 0
+                    -> VORSICHT: wenn möglich kein null verwenden. Macht das Programm instabiler
+-> star rating einführen
+    -> wenn man den Anime zu completed Animes rüberschiebt wird man gefragt, ob man den Anime bewerten möchte
+        -> wenn ja, dann zwischen 0 und 5 Sterne
+        -> wenn nein, dann wird n/a (-1) eingetragen
+    -> wird als icon links neber dem Namen im Listitem angezeigt
+        -> 5 icons/bilder erstellen mit 1 bis 5 Sternen
+    -> man wird aber nicht gezwungen Animes zu bewerten
+        -> in den Einstellungen kann man das abschalten
+[REJECTED. maybe later]!! Liste ist eine Tabelle [Oliver]
+    -> anderer Anzeige Modus
+    -> wie eine Exceltabelle nur schöner
+    -> Spalten sind jeweils: Name, Current Episode, Total Episodes
+    !! soll übersichtlicher sein
+-> Level System
+    -> Statistik
+-> Sortieren
+    -> alphabetisch
+    -> nutzerspezifisch
+    -> zuletzt gesehen
+    -> Einfügedatum
+[REJECTED]-> Bild zu jedem Anime anzeigen
+    -> [REJECTED] -> zu wenig Platz im Fenster
+    -> links neben der Liste
+    -> von myanimelist.net nachladen
+        -> oder selber eins setzen
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 1]-> Suchen
+    [REJECTED]-> mit Suchleiste
+        -> um beispielsweise nach "ger dub" zu suchen
+    [CONSIDER TO ADD]-> mit STRG+F
+        -> kleines Fenster poppt auf, darin gibt man seinen Suchbegriff ein
+        -> bei Treffer wird das Listitem markiert und dahin gescrollt
+        -> wenn nicht gefunden werden konnte, kommt ein Popup mit der Meldung
+-> Listen in Datenbank speichern
+    -> lokal in .db Dateien
+        -> MySQL benutzen
+-> Anime als Favorit markieren
+    -> in my anime list und completed anime list ist diese markierung möglich
+-> jedem Anime ein Genre zuordnen
+    -> danach kann gefiltert werden
+    -> Animes sind nach Genre farblich markiert?
+        -> oder eher, wenn man mit der Maus drüber hovert, soll das Genre als Tooltip angezeigt werden
+[REJECTED]-> Dropped Animes Liste
+    -> Unter dem Menüpunkt 'List' neue Option: Show Dropped Animes
+[REJECTED. maybe later]-> mit Cloud synchronisieren
+    -> dazu muss ein Nutzername und Passwort festgelegt werden
+    -> soll hauptsächlich als Backup dienen
+    -> man kann damit auch seine Liste von einem anderen Computer laden
+        -> selbst wenn die Liste lokal nicht verfügbar ist
+        -> man braucht nur das Programm und seinen Nutzernamen und Passwort
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 2]-> automatisches Backup
+    -> Einstellung hinzufügen, wann ein Backup automatisch erstellt wird
+        -> Auswahlmöglichkeiten
+            -> immer beim Schließen des Programms
+            -> einmal am Tag
+            -> einmal pro Woche
+[REJECTED. maybe later]-> set backup location
+[REJECTED. zu aufwendig]-> Liste besteht nur aus Bildern
+    -> anderer Anzeige Modus
+        -> muss in den Einstellungen geändert werden
+    -> 4 Bilder in einer Reihe zB
+    -> Bildergröße kann festgelegt werden
+    -> rechts neben der Liste wird Name, Episoden Nummern angezeigt
+        -> GUI muss verändert werden
+-> when selecting another list
+    -> Animes sollen in meine Liste übertragbar sein
+    -> für jeden Anime (in currently watching & finished animes) soll ein Button
+       da sein, worauf steht "Copy from <list name> (gre90r.anl) to my own list"
+    -> implementierung
+        -> anime wird appending in mylist.anl geschrieben
+            -> current episode wird auf 1 zurückgesetzt
+            -> dadurch ist die Liste unsortiert, aber da die liste sowieso immer sortiert wird,
+               wird alles richtig angezeigt und beim abspeichern auch wieder sortiert abgespeichert
+                -> wie es sein soll
+                -> also kein problem den Anime einfach in mylist.anl anzuhängen
+
+
+    
+    
+LIST (CHANGE)
+---- 
+-> filtern
+    -> ger dub, ger sub, eng sub, eng dub
+        !! filter by tag/keyword
+            -> man gibt zB den Tag "ger dub" ein und dann werden alle Einträge
+               angezeigt, die diesen string beinhalten
+    -> genre
+        -> von myanimelist.net abrufen
+            -> anime name auf myanimelist suchen. bei Treffer genre auslesen
+            -> mögliche Implementierung mit myanimelist API
+                -> curl -u user:password -d http://myanimelist.net/api/anime/search.xml?q=naruto
+            -> siehe auch myanimelist API Doku: http://myanimelist.net/modules.php?go=api
+                -> http://myanimelist.net/includes/ajax.inc.php?t=64&id=1
+                    -> ohne ID geht aber nichts
+    -> filter by keyword
+        -> zum Beispiel nach "[Ger Dub]" suchen, um alle ger dubs zu sehen
+            -> [Ger Dub] müsste man aber beim Anime Namen selber eintragen
+-> custom list items
+[REJECTED. zu viel Spielerei. keep it simple and stupid]-> aktuelle Nummer der Folge markieren
+    -> Farbe rot
+    
+  
+
+PREFERENCES (CHANGE)
+-----------
+-> umbennen
+    -> set custom background -> custom background
+-> nicht das Wort "set" benutzen
+    -> man kann bei jeder Sache einen neuen Wert setzen und man könnte überall set hinzuschreiben
+        -> daher einfach das Wort set weglassen
+-> Einstellungen in Tabs aufteilen
+    -> User Interface
+    -> Backup
+        
+
+   
+Code Quality
+------------
+[CONSIDER TO ADD in Anwalic 1.4 DevBuild 2]!! Filter Funktionen in Menüpunkt "Filter" zB "Filter > Show Movies"
+    -> es gibt wiederholenden Code.
+        -> wiederholender Code in Funktion auslagern
+            -> sobald Filter-Funktion aufgerufen wird, diese ausgelagerte Funktion aufrufen
+-> Unit Tests hinzufügen
+-> Refactoring
+    -> Supertyp benutzen, wo möglich
+-> überprüfe, ob professionelles Exception Handling eingehalten wird
+-> Factory erstellen
+    -> Name: AnwalicFactory
+    -> Anwalic Factory instanziiert alles
+        -> Animelist
+        -> ErrorView
+        -> ...
+    -> mit Factory.getInstanceOf... kann man animelist etc. in MainWindow benutzen
+    -> onClick Methoden nicht auslagern
+
+
+
+Anime Objekt
+------------
+-> um folgende Attribute erweitern
+    -> date finished (not null)
+        -> to_date() Funktion benutzen. kein String
+            -> damit ist die Sortierung leichter
+    -> star rating
+    -> isCompleted (not null)
+    -> genre
+        -> enumeration benutzen
+    -> audio language
+        -> enumeration benutzen
+    
+    
+    
+Datenbank
+---------
+-> Daten in lokaler MySQL Datenbank speichern
+
+
+
+Einstellungen
+-------------
+-> mehrere Tabs im Einstellungs-Fenster machen
+    -> ein Tab für eine Kategorie
+        -> User Interface [Tab]
+            -> custom background        [Einstellung]
+            -> font size                [Einstellung]
+            -> list caption color       [Einstellung]
+        -> Backup [Tab]
+            -> automatic backup         [Einstellung]
+
+

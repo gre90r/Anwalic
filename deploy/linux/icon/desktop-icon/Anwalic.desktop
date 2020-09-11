@@ -1,0 +1,13 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Anwalic
+GenericName=anwalic
+Comment=Anime Watch List Creator
+NoDsiplay=true
+Exec=/home/gregor/.Anwalic/anwalic.sh
+Icon=/home/gregor/.Anwalic/icon/Anwalic_icon_1.png
+Terminal=false
+StartupNotify=false
+Categories=other;

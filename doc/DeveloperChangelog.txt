@@ -1,0 +1,438 @@
+
+Anwalic 1.4 DevBuild 2
+----------------------
+
++++ 2020-09-11 +++
+-> removed copyright material
+-> fixed compiler warning reorder attributes
+
+
+
+Anwalic 1.4 DevBuild 1
+----------------------
+
+--------------------------------------------------------------------------------------------------------------
+    +------+
+    | TODO |
+    +------+
+        -> fix found bugs which are described in "anwalic coming updates.txt"
+            -> that will be version Anwalic 1.4 DevBuild 2
+        [DONE]-> replace bad code for FilterAnimelist
+            [DONE]-> All Filters
+                [DONE]-> Show Movies
+                [DONE]-> Show Open Ended Animes
+                [DONE]-> Hide Movies
+                [DONE]-> Hide Open Ended Animes
+                [DONE]-> Hide Animes With Name Only
+                [DONE]-> Filter By Tag
+                [DONE]-> Show Started Animes Only (Button)
+
+--------------------------------------------------------------------------------------------------------------
+
+
+
++++ 2018-12-20 +++
+-> fixed bug in addNewAnimeWindow
+    -> when Anime name contains only a space
+        -> it will be accepted and appears in list but it cannot be editted nor deleted nor incremented
+            -> you can do nothing with it
+-> added new feature
+    -> add-button only is enabled when user input is correct
+        -> works while user types
+
+
+
++++ 2018-12-14 +++
+-> fixed bug: in editAnimeWindow: anime name can be changed to anime name which is in Completed Animelist
+-> current state: stable
+
+
+
++++ 2018-10-05 +++
+-> current state: stable
+    -> current version: Anwalic 1.4 DevBuild 1.1
+        -> DevBuild 1.1 done
+-> replaced old code for Filter "Show Open Ended Animes"
+-> replaced old code for Filter "Hide Movies"
+-> replaced old code for Filter "Hide Open Ended Animes"
+-> replaced old code for Filter "Hide Animes With Name Only"
+-> replaced old code for Filter "Filter By Tag"
+-> replaced old code for Filter "Show Started Animes Only"
+
+
+
++++ 2018-10-03 +++
+-> current state: stable
+-> replaced old code in MainWindow.cpp for Filter "Show Movies Only" with new code from
+   class FilterShowMovies
+!! there may be a code quality issue because for the class FilterShowMovies
+   the pointer for AnimelistManager is passed out of the class AnwalicService as NOT CONST.
+   But FilterShowMovies needs to modify FilteredAnimelist inside AnimelistManager, so it must be not const.
+    !! can be resolved by making AnwalicService a FRIEND CLASS to get access to its
+       private attributes
+
+
+
++++ 2018-09-30 +++
+-> implemented abstract class "FilterAnimelist"
+    -> added method "applyFilter"
+    -> method "clearFilter" and "enableUiElements" not needed since
+       you can press on button "Clear Filter" and it performs all this.
+-> updated documentation in code and feature planning
+-> [NEXT IS] inherit class "FilterAnimelist" and create a Filter. And
+   replace the bad code in MainWindow with the invokation of this new class.
+
+
+
++++ 2018-09-29 +++
+-> finished diagrams
+    -> class diagram: FilterAnimelist
+    -> sequence diagram: applyFilter
+    -> sequence diagram: removeFilter
+
+
+
++++ 2018-09-28 +++
+-> preparing diagrams for feature "FilterAnime"
+    -> it has just been implemented but the code quality is shit
+        -> a new class "FilterAnime" is needed to
+
+
+
++++ 2018-03-10 +++
+-> implemented: Hide Movies
+-> implemented: Show Open Ended Animes
+-> implemented: Hide Open Ended Animes
+-> renamed menu item: "Show Movies Only" to "Show Movies"
+-> implemented: Filter by Tag
+-> fixed issues when filtering completed animelist
+-> removed menu item "Search by Tag (Ctrl+F)"
+    -> feature is already there when you focus the animelist and start typing.
+       It automatically selects the anime which matches your typing
+
+
+
++++ 2018-03-09 +++
+-> implemented: add sub-program-version for debug build
+-> implemented: vorgemerkte Animes verbergen 
+    -> added methid: hideAnimesWithNameOnly
+
+
+
++++ 2018-03-08 +++
+-> implemented: allow filter for completed list
+
+
+
++++ 2018-03-07 +++
+-> AnwalicService now handles openURL, previously MainWindow was calling openURL directly
+-> improved code readibility in class Anime & Animelist
+-> updated dependency graph
+    -> there is one cyclic dependency problem between SaveLoad & ErrorView
+        -> ErrorView is only calling static methods from SaveLoad, so there is no problem with the implementation
+-> added implementation to open website animefreak.tv
+-> found bug: quitting program while list is filtered leads to crash
+    -> fixed: anime objects have been double deleted by AnimelistManager in filtered animelist
+-> added code documentation for class memory
+
+
+
++++ 2018-03-06 +++
+-> organized which the new features will be
+-> new features are
+    -> list
+        -> Search by Tag (jumps to entry in list and selects it)
+    -> filter
+        -> Show Movies Only
+        -> Hide Movies
+        -> Show Open Ended Animes
+        -> Hide Open Ended Animes
+        -> Filter by Tag (only animes with the tag are being displayed)
+    -> websites
+        -> animefreak.tv
+    -> more coming in DevBuild 2
+-> added new UI elements for above features
+    -> not implemented yet
+-> removed ":" in windowAbout in "Do you want to report an error?:"
+
+
+
+Anwalic 1.3
+-----------
+
++++ 2018-03-06 +++
+-> this is the final release for version 1.3
+-> changed window title to Anwalic 1.3
+-> changed about window's user information text & font
+    -> formerly was a Microsoft font, now is Liberation Sans
+
+
+
+Anwalic 1.3 DevBuild 6
+----------------------
+    #########################################################################################################################
+    # GENERAL INFORMATION:                                                                                                  #
+    # DevBuild 6 is changing the architecture of the code drastically.                                                      #
+    # Too many things are in MainWindow. MainWindow's purpose is to handle the UI                                           #
+    # and not e.g. find animes in list.                                                                                     #
+    #                                                                                                                       #
+    # ANWALIC SERVICE:                                                                                                      #
+    # All methods that do not have anything to do with MainWindow such as the "find anime in list" method are               #
+    # being extracted to a service class AnwalicService which contains the business logic.                                  #
+    #                                                                                                                       #
+    # ANIMELIST MANAGER:                                                                                                    #
+    # And I introduce another class: AnimelistManager.                                                                      #
+    # That class manages the switching of the different lists:                                                              #
+    # My Anime List (previously called Now Watching Animes), Completed Anime List, Filtered Anime List                      #
+    #                                                                                                                       #
+    # SAVE LOAD:                                                                                                            #
+    # loading and saving the lists will be handled by the new class SaveLoad                                                #
+    #########################################################################################################################
+
+HOW TO EXTRACT:
+// extract to AnwalicService.h and .cpp   (all business logic such as finding, sorting, filtering, removing. BUT adding, removing etc.
+//                                         needs to be passed to AnimelistManager. AnwalicService receives all requests)
+// extract to AnimelistManager.h and .cpp (everything for getting/setting/switching lists and adding, deleting animes)
+
+
+ARCHITECTURE:
+                                MainWindow      (list, buttons, menus)                          PRESENTATION LAYER
+                +-------------------+
+                |                   |
+               \ /                 \ /
+           Preferences        AnwalicService    (find, filter, openURL)                         BUSINESS LOGIC LAYER
+(window position/size,              |
+ background image,                  |
+ text size)                        \ /
+                            AnimelistManager    (CRUD: add, edit, delete, get data)             DATA ACCESS LAYER
+                                    |
+                                    |
+                                   \ /
+                                Animelist       (container for anime objects)                   DATA CONTAINER
+                                    |
+                                    |
+                                   \ /
+                                  Anime         (anime information: name, URL, episodes)        DATA
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+    +-----------+
+    | Changelog |
+    +-----------+
+
+
++++ 2018-03-05 +++
+-> added new Websites
+    -> crunchyroll.com
+    -> kissanime.ru
+-> removed Websites
+    -> pure-ani.me (does no longer exist)
+-> renamed "Select Another List" to "Import Another List", so this is the same feature
+-> renamed "Make Backup" to "Create Backup", so this is the same feature
+-> improved code readibility
+    -> changed m_animeList = new Animelist( saveload->load() );
+        -> now it's: m_animeList = new Animelist( saveload->load( MY_ANIMELIST ) );
+-> removed old code comments
+-> improved code documentation
+-> moved string2uint() from SaveLoad to StringUtils
+    -> but is never used. may be useful later, so keep it in StringUtils
+-> renamed method on_actionSelect_Another_List_triggered() to on_actionImport_Another_List_triggered()
+-> renamed method on_actionNow_Watching_Animes_triggered() to on_actionMy_Anime_List_triggered()
+-> all TODOs processed
+-> FINISHED Anwalic 1.3 DevBuild 6
+
+
+
++++ 2018-03-04 +++
+-> fixed messed up extractions
+    -> these things did not work after extraction
+        -> [RESOLVED] export my list
+            -> added method exportAnimelist() in AnwalicService
+        -> [RESOLVED] when "Move to Completed Anime List" is clicked, there is the user dialog missing asking whether we want to
+           move it to completed list or not
+            -> forgot to add the code lines 
+        -> [RESOLVED] when Select Another List, list path is not displayed list caption
+            -> issue was that importedMyAnimeListPath was never written with new value, so it remained empty
+                -> altered AnwalicService::selectAnotherList() to take importedMyAnimeListPath and importedCompletedListPath as Parameter
+            -> AnimelistManager::selectAnotherList() now sets m_importedMyAnimeListPath & m_importedCompletedListPath
+-> ALL MISSBEHAVIOR RESOLVED. Program is now ready to add some new features :P
+
+
+
++++ 2018-03-03 +++
+-> continued work from "+++ 2017-07-22 +++" -> Move Service Methods from MainWindow to AnwalicService
+    -> moved on_actionMake_Backup_triggered() to AnwalicService
+    -> renamed MainWindow::countAnimesInList() to MainWindow::displayNumberOfAnimesInList() and
+       adjusted code to new architecture
+    -> EXTRACTION FINISHED but is not running
+-> improved code documentation
+
+
+
++++ 2018-03-02 +++
+-> continued work from "+++ 2017-07-22 +++" -> Move Service Methods from MainWindow to AnwalicService
+    -> moved parts of on_actionSelect_Another_List_triggered() to new method selectAnotherList() AnwalicService
+    -> altered on_btnToggleAnimeLists_clicked(). extracted attribute m_listSelected.
+        -> now AnwalicService is called to check which list is selected
+    -> moved countAnimesInMyAnimeList() to AnwalicService
+    -> moved parts of on_btnShowStartedAnimesOnly_clicked() to AnwalicService
+        -> moved filter part
+    -> moved clearFilteredAnimeList() to AnwalicService
+-> improved code documentation
+-> runtimeErrorHandler now writes error message to log file
+-> main altered
+    -> main displays error codes to user on exceptions
+    -> introduced error code 3000
+        -> when a fatal error occured
+-> fixed memory leak in passOriginalAnimePointersFromMyAnimeListToFilteredAnimeList()
+
+
+
++++ 2018-02-27 +++
+-> continued work from "+++ 2017-07-22 +++" -> Move Service Methods from MainWindow to AnwalicService
+    -> moved part of on_actionSelect_My_List_triggered()
+        -> added method selectMyList() to handle MainWindow::on_actionSelect_My_List_triggered()
+    [currently working on] MainWindow::on_actionSelect_Another_List_triggered() <-- WORK HERE NEXT
+-> fixed memory leak in AnimelistManager::setMyAnimeList()
+-> fixed memory leak in AnimelistManager::setCompletedAnimeList()
+-> implemented destructor for AnwalicService and AnimelistManager
+-> improved code documentation
+
+
+
++++ 2018-02-25 +++
+-> continued work from "+++ 2017-07-22 +++" -> Move Service Methods from MainWindow to AnwalicService
+    -> moved moveAnimeToCompletedList() to AnimelistManager
+    -> moved moveAnimeToCompletedAnimelist() to AnimelistManager
+    -> improved code documentation
+    -> moved attribute m_activeListIsMyList from MainWindow to AnimelistManager
+
+
++++ 2018-02-22 +++
+-> continued work from "+++ 2017-07-22 +++" -> Move Service Methods from MainWindow to AnwalicService
+    -> moved getAnimeNameFromSelectedListItemAndValidate() to AnwalicService
+    -> moved findAnimeByName() to AnwalicService
+-> improved documentation
+    -> code documentation
+        -> comments from mainwindow.cpp line 1 to line 433 have been moved to headerfile mainwindow.h
+    -> text documentation
+        -> created text document Architecture.txt 
+-> everything above mainwindow.cpp line 433 has been altered correctly (except old code in comments needs to be removed)
+    -> work next at mainwindow.cpp line 433
+
+
+
++++ 2018-02-19 +++
+-> continued work from "+++ 2017-07-22 +++" -> Move Service Methods from MainWindow to AnwalicService
+    -> moved save() to AnwalicService and changed calls in mainwindow
+    -> decided to let applyPreferences() be in mainwindow since it applies ui preferences
+    -> almost finished AnwalicService constructor. there's an error to fix
+
+
++++ 2017-07-22 +++
+-> Move Service Methods from MainWindow to AnwalicService
+-> Move Attributes out of MainWindow and to where they belong
+[CURRENT STATE]-> half finished extraction.
+    extracted methods & attributes from mainwindow.
+    started relinking methods in mainwindow with service.function but is not finished.
+    implementations need to be redone.
+    some values need to be passed out of mainwindow in order to get the extracted methods to work.
+
+
+
++++ 2017-07-12 +++
+-> Move Service Methods from MainWindow to AnwalicService
+
+
+
+
+
+
+Anwalic 1.3 DevBuild 5
+----------------------
+
++++ 2017-02-18 +++
+-> BUGFIX: memory leak when closing window with ESC key
+	-> solved in
+		-> addnewanime window
+		-> about window
+		-> preferences window
+		-> editanime window
+-> enable closing red cross on all windows
+	-> windows being affacted
+		-> addnewanime
+		-> about
+		-> preferences
+		-> editanime
+-> removed word "Anwalic" from windows
+	-> e.g. "Anwalic - Add New Anime" now is "Add New Anime"
+	-> windows being affected
+		-> addnewanime
+		-> editanime
+		-> preferences
+-> BUGFIX: when calling Backup from menu. List -> Make Backup. response window has no icon
+-> BUGFIX: in AddNewAnime. when entering an invalid URL the popup has no icon
+	-> same case if total episodes is invalid
+-> in uiAddNewAnime moved objects. make UI cleaner
+
+
+
++++ 2017-02-17 +++
+-> BUGFIX: anime name too long
+-> BUGFIX: do not move (4096 / ??) & and update Episode +1 Button correctly
+-> refactorings
+
+
+
++++ 2017-02-15 +++
+-> CREATED NEW STABLE VERSION: Anwalic 1.3 DevBuild 4
+	-> ready to deploy
+-> created Unit Tests for class Animelist
+	-> finished test cases for class Animelist
+-> removed "eliteanimes.com" from Websites in Menubar
+	-> website unavailable
+-> BUGFIX: when selecting another list. file path is not displayed in completed anime list
+-> fully tested Anwalic 1.3 DevBuild 4
+	-> approved to be stable
+	-> but has still performance loss when anime name is too long
+-> refactored several attribut names
+-> code cleanup
+	-> set brackets to improve reading
+
+
+
++++ 2017-02-14 +++
+-> created Unit Tests for class Animelist
+-> not calling ErrorView in Animelist anymore
+-> renamed in enum ListType: "COMPLETED_ANIMES" -> "COMPLETED_ANIMELIST"
+-> updated class diagram
+	-> added enum ListType
+	-> remove dependency Animelist ---> ErrorView
+-> renamed Attribut "m_episode" of class Anime to "m_currentEpisode"
+-> removed method "push_back" of class Animelist
+	-> was duplicate of method "addAnime"
+
+
+
++++ 2017-02-13 +++
+-> created Unit Tests for class Animelist
+
+
+
++++ 2017-02-12 +++
+-> moved enum ListType in own file ListType.h
+	-> previously was in FileIO.h
+-> refactor class name "AnimeList" to "Animelist"
+-> code & comment cleanup in class Animelist
+
+
+
++++ 2017-02-11 +++
+-> moved method openUrl() to new class InternetUtilities
+-> update class diagram
+
+
+
++++ 2017-02-10 +++
+-> removed QStringListModel creation from Animelist class and moved it into new class AnimeListViewHelper
+	-> changed: MainWindow::getAnimeNameFromSelectedListItemAndValidate()
+	-> changed: MainWindow::setAnimeListOnListview()
