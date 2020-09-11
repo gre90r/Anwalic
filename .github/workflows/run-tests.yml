@@ -17,9 +17,9 @@ jobs:
       uses: jurplel/install-qt-action@v2
       with:
         version: '5.14.2'
-        host: 'windows'
+        host: 'linux'
         target: 'desktop'
-        arch: 'win64_msvc2017_64'
+        arch: ''
         dir: '${{ github.workspace }}/'
         install-deps: 'true'
         modules: 'qtcharts qtwebengine'
