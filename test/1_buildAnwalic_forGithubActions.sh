@@ -4,7 +4,8 @@
 # build Anwalic before build Test #
 ###################################
 
+QMAKE=$QTDIR/bin/qmake
+
 cd ..
-QMAKE=$Qt5_DIR/bin/qmake
 $QMAKE anwalic.pro
 make
