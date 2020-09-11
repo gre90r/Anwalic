@@ -8,12 +8,13 @@ CQTDEPLOYER="$HOME/.CQtDeployer/1.5/cqtdeployer.sh"
 DEPLOY_DIR=./deploy/linux
 DEPLOY_INSTALLER_DIR=./installer/linux
 ANWALIC_VERSION=1.4-DevBuild-2
+QMAKE="$HOME/.Qt/5.14.2/gcc_64/bin/qmake"
 
 ##############################################
 # deploy application. create all needed libs #
 ##############################################
 $CQTDEPLOYER -bin anwalic \
-             -qmake "$HOME/.Qt/5.14.2/gcc_64/bin/qmake" \
+             -qmake $QMAKE \
              -targetDir $DEPLOY_DIR \
              -name Anwalic \
              -icon ./icon/Anwalic_icon_1.png \

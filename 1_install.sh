@@ -26,7 +26,7 @@ fi
 #############
 # variables #
 #############
-QMAKE=$HOME/.Qt/5.14.2/gcc_64/bin/qmake
+QMAKE=$HOME/Qt/5.14.2/gcc_64/bin/qmake
 ICON_FILE_NAME=Anwalic.desktop
 ICON_FILE=icon/desktop-icon/$ICON_FILE_NAME
 SYSTEM_DESKTOP_ICON_FOLDER=/usr/share/applications

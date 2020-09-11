@@ -6,7 +6,7 @@
 
 APP_NAME=AnwalicTest
 CQTDEPLOYER="$HOME/.CQtDeployer/1.5/cqtdeployer.sh"
-QMAKE="$HOME/.Qt/5.14.2/gcc_64/bin/qmake"
+QMAKE="$HOME/Qt/5.14.2/gcc_64/bin/qmake"
 DEPLOY_DIR=./deploy
 
 ##############################################
