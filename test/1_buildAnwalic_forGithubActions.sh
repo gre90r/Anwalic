@@ -5,6 +5,6 @@
 ###################################
 
 cd ..
-QMAKE=qmake
+QMAKE=$Qt5_DIR/bin/qmake
 $QMAKE anwalic.pro
 make
