@@ -12,6 +12,10 @@ anime_background_2.jpg
 # object files
 *.o
 
+# compiled on Windows files
+object_script.anwalic.Debug
+object_script.anwalic.Release
+
 # qmake
 .qmake.stash
 

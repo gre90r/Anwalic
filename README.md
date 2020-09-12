@@ -16,7 +16,7 @@ Please note, that I set a custom background for the application, which you can a
 # 2 Downloads
 ## 2.1 Windows Downloads
 
-*TODO: upload windows build without copyright material*
+*TODO: upload Windows build without copyright material*
 
 ## 2.2 Linux Downloads
 
@@ -64,10 +64,24 @@ We will create a standalone version of the application with
 
 
 ## 4.2 Build on Windows
-for Windows I create a static compiled version. Build and configure Qt from source, so it builds a static compiled version of Anwalic, see below.
+
+### 4.2.1 Dynamic Build (with DLLs)
+* install Microsoft Visual Studio 2015 or 2017
+* Download and install [Qt 5.14.2](https://download.qt.io/official_releases/qt/5.14/5.14.2/)
+* run cmd and change directory to Anwalic folder
+* run in command line
+    * `<path-to-qt>\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\qmake -config release -o Makefile anwalic.pro`
+    * `make`
+        * this currently does not work
+            * Makefile error: multiple target patterns
+            * mingw seems to be the wrong compiler. Try with msvc2015 or msvc2017.
+
+*TODO: install Visual Studio 2015 or 2017 to get compiler msvc2015 or msvc2017. Qt 5.14.2 on Windows only supports these Microsoft compilers.*
 
 
-### 4.2.1 Static Build
+### 4.2.2 Static Build (without DLLs)
+You can also create a static compiled version. Build and configure Qt from source, so it builds a static compiled version of Anwalic, see below.
+
 You can also put all dependencies inside the executable to have no shared
 libraries / DLLs. No shared libraries like libQt5Core.dll or
 libQt5Core.so.5.13.0). Therefore, you have to recompile Qt from sources.
