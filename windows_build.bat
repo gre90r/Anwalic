@@ -33,8 +33,16 @@ set MAKE=%MINGWDIR%\mingw32-make.exe
 set path=%path%;%QTDIR%\bin;%MINGWDIR%;
 :: ==========================================================
 
-::set QMakeSpec=win32-msvc
+:: ==================== QMAKESPEC ===========================
+:: set compiler parameters. sets default values to create an
+:: appropriate makefile. Adjust QMakeSpec to fit your
+:: compiler. This loads the according qmake.conf file.
+:: for mingw use win32-g++.
+:: for msvc probably win32-msvc.
+:: see C:\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs for all
+:: QMakeSpecs.
 set QMakeSpec=%QTDIR%\mkspecs\win32-g++
+:: ==========================================================
 
 :: ==================== Start Building ======================
 echo QTDIR=%QTDIR%
