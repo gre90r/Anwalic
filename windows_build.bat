@@ -18,21 +18,20 @@ set MINGWDIR=C:\MinGW\bin
 set QMAKE=%QTDIR%\bin\qmake.exe
 set MAKE=C:\MinGW\bin\mingw32-make.exe
 :: !! there is a compatibility issue between
-:: your compiler you want to compile your
-:: application and with which compiler your
-:: tools have been compiled. So, you want
-:: e.g. to compile your application with
-:: msvc, then you need a qmake and make that
-:: has also been compiled with msvc.
+:: your compiler you want to use and with which compiler
+:: your build tools have been compiled. So, you want
+:: e.g. to compile your application with mingw, then
+:: you need a qmake and make that has also been compiled
+:: with mingw. Also be aware of the x86 or x64 versions
+:: of your build tools.
 :: =======================================================
 
 :: ================== PATHS ========================
-:: export paths. add Qt and msvc compiler to
-:: path.
+:: add Qt, MinGW and msvc to path
 :: Visual Studio 2017
 set path=%path%;%QTDIR%\bin;%MINGWDIR%;"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.12.25827\bin\Hostx64\x64"
 :: Visual Studio 2019
-::set path=%path%;%QTDIR%\bin;"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\bin\Hostx64\x64"
+::set path=%path%;%QTDIR%\bin;%MINGWDIR%;"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\bin\Hostx64\x64"
 :: =================================================
 
 ::set QMakeSpec=win32-msvc
