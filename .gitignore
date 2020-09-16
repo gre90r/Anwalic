@@ -27,7 +27,9 @@ object_script.anwalic.Release
 
 # Build results
 
-[Dd]ebug/
+# will remove needed debug module in boost library
+#[Dd]ebug/
+
 [Rr]elease/
 x64/
 build/
