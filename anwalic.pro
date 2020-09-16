@@ -5,10 +5,16 @@
 TEMPLATE = app
 TARGET = anwalic
 INCLUDEPATH += src/
+CONFIG += release c++11
 #CONFIG += static
-CONFIG += release
-CONFIG += c++11
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+unix {
+
+}
+win32 {
+
+}
 
 # You can make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.

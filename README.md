@@ -25,7 +25,7 @@ Please note, that I set a custom background for the application, which you can a
 
 # 3 Dependencies
 * Qt5 (tested with Qt 5.13.0 and Qt 5.14.2)
-* Boost
+* Boost (1.74.0)
 
 Mainly developed with Microsoft Visual Studio 2013
 
@@ -66,18 +66,9 @@ We will create a standalone version of the application with
 ## 4.2 Build on Windows
 
 ### 4.2.1 Dynamic Build (with DLLs)
-* install Microsoft Visual Studio 2015 or 2017
-* Download and install [Qt 5.14.2](https://download.qt.io/official_releases/qt/5.14/5.14.2/)
-* run cmd and change directory to Anwalic folder
-* run in command line
-    * `<path-to-qt>\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\qmake -config release -o Makefile anwalic.pro`
-    * `make`
-        * this currently does not work
-            * Makefile error: multiple target patterns
-            * mingw seems to be the wrong compiler. Try with msvc2015 or msvc2017.
-
-*TODO: install Visual Studio 2015 or 2017 to get compiler msvc2015 or msvc2017. Qt 5.14.2 on Windows only supports these Microsoft compilers.*
-
+* install MinGW
+* install [Qt 5.14.2](https://download.qt.io/official_releases/qt/5.14/5.14.2/)
+* run `windows_build.bat`
 
 ### 4.2.2 Static Build (without DLLs)
 You can also create a static compiled version. Build and configure Qt from source, so it builds a static compiled version of Anwalic, see below.
