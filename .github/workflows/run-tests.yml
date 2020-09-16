@@ -29,7 +29,7 @@ jobs:
         py7zrversion: '==0.9.1'
         extra: '--external 7z'
     - name: build Anwalic
-      run: ./test/1_buildAnwalic_forGithubActions.sh
+      run: ./ci-scripts/build-Anwalic.sh
     - name: build Test
       run: ./test/2_buildTest.sh
     - name: build Dependencies
