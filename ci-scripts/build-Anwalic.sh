@@ -5,7 +5,6 @@
 QMAKE=qmake
 
 echo `pwd`
-
 # build
 $QMAKE anwalic.pro -spec linux-g++
 make
