@@ -16,70 +16,70 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I. -Isrc -I..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\include -I..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtWidgets -I..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtGui -I..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtANGLE -I..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\include\QtCore -Idebug -I. -I..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\win32-g++ 
+INCPATH       = -I. -Isrc -I../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include -I../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -I../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -I../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -I../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Idebug -I. -I../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        C:\Qt\Qt5.14.2\5.14.2\mingw73_32\lib\libQt5Widgets.a C:\Qt\Qt5.14.2\5.14.2\mingw73_32\lib\libQt5Gui.a C:\Qt\Qt5.14.2\5.14.2\mingw73_32\lib\libQt5Core.a  -lmingw32 C:\Qt\Qt5.14.2\5.14.2\mingw73_32\lib\libqtmain.a -LC:\openssl\lib -LC:\Utils\my_sql\mysql-5.7.25-win32\lib -LC:\Utils\postgresql\pgsql\lib -lshell32 
-QMAKE         = C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\qmake.exe
-DEL_FILE      = del
-CHK_DIR_EXISTS= if not exist
-MKDIR         = mkdir
-COPY          = copy /y
-COPY_FILE     = copy /y
-COPY_DIR      = xcopy /s /q /y /i
-INSTALL_FILE  = copy /y
-INSTALL_PROGRAM = copy /y
-INSTALL_DIR   = xcopy /s /q /y /i
-QINSTALL      = C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\qmake.exe -install qinstall
-QINSTALL_PROGRAM = C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\qmake.exe -install qinstall -exe
-DEL_FILE      = del
+LIBS        =        C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/libQt5Widgets.a C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/libQt5Gui.a C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/libQt5Core.a  -lmingw32 C:/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/libqtmain.a -LC:/openssl/lib -LC:/Utils/my_sql/mysql-5.7.25-win32/lib -LC:/Utils/postgresql/pgsql/lib -lshell32 
+QMAKE         = C:/Qt/Qt5.14.2/5.14.2/mingw73_32/bin/qmake.exe
+DEL_FILE      = rm -f
+CHK_DIR_EXISTS= test -d
+MKDIR         = mkdir -p
+COPY          = cp -f
+COPY_FILE     = cp -f
+COPY_DIR      = cp -f -R
+INSTALL_FILE  = cp -f
+INSTALL_PROGRAM = cp -f
+INSTALL_DIR   = cp -f -R
+QINSTALL      = C:/Qt/Qt5.14.2/5.14.2/mingw73_32/bin/qmake.exe -install qinstall
+QINSTALL_PROGRAM = C:/Qt/Qt5.14.2/5.14.2/mingw73_32/bin/qmake.exe -install qinstall -exe
+DEL_FILE      = rm -f
 SYMLINK       = $(QMAKE) -install ln -f -s
 DEL_DIR       = rmdir
-MOVE          = move
+MOVE          = mv -f
 IDC           = idc
 IDL           = midl
-ZIP           = zip -r -9
+ZIP           = 
 DEF_FILE      = 
 RES_FILE      = 
-SED           = $(QMAKE) -install sed
-MOVE          = move
+SED           = sed
+MOVE          = mv -f
 
 ####### Output directory
 
-OBJECTS_DIR   = debug
+OBJECTS_DIR   = debug/
 
 ####### Files
 
-SOURCES       = src\aboutwindow.cpp \
-		src\addnewanime.cpp \
-		src\anime.cpp \
-		src\animelist.cpp \
-		src\AnimelistManager.cpp \
-		src\AnimeListViewHelper.cpp \
-		src\anwalic_plugin_import.cpp \
-		src\AnwalicService.cpp \
-		src\editanimewindow.cpp \
-		src\errorview.cpp \
-		src\FilterAnimelist.cpp \
-		src\FilterByTag.cpp \
-		src\FilterHideAnimesWithNameOnly.cpp \
-		src\FilterHideMovies.cpp \
-		src\FilterHideOpenEndedAnimes.cpp \
-		src\FilterShowMovies.cpp \
-		src\FilterShowOpenEndedAnimes.cpp \
-		src\FilterShowStartedAnimes.cpp \
-		src\InternetUtilities.cpp \
-		src\main.cpp \
-		src\mainwindow.cpp \
-		src\memory.cpp \
-		src\preferences.cpp \
-		src\preferenceswindow.cpp \
-		src\saveload.cpp \
-		src\StringUtils.cpp debug\moc_aboutwindow.cpp \
-		debug\moc_addnewanime.cpp \
-		debug\moc_editanimewindow.cpp \
-		debug\moc_mainwindow.cpp \
-		debug\moc_preferenceswindow.cpp
+SOURCES       = src/aboutwindow.cpp \
+		src/addnewanime.cpp \
+		src/anime.cpp \
+		src/animelist.cpp \
+		src/AnimelistManager.cpp \
+		src/AnimeListViewHelper.cpp \
+		src/anwalic_plugin_import.cpp \
+		src/AnwalicService.cpp \
+		src/editanimewindow.cpp \
+		src/errorview.cpp \
+		src/FilterAnimelist.cpp \
+		src/FilterByTag.cpp \
+		src/FilterHideAnimesWithNameOnly.cpp \
+		src/FilterHideMovies.cpp \
+		src/FilterHideOpenEndedAnimes.cpp \
+		src/FilterShowMovies.cpp \
+		src/FilterShowOpenEndedAnimes.cpp \
+		src/FilterShowStartedAnimes.cpp \
+		src/InternetUtilities.cpp \
+		src/main.cpp \
+		src/mainwindow.cpp \
+		src/memory.cpp \
+		src/preferences.cpp \
+		src/preferenceswindow.cpp \
+		src/saveload.cpp \
+		src/StringUtils.cpp debug/moc_aboutwindow.cpp \
+		debug/moc_addnewanime.cpp \
+		debug/moc_editanimewindow.cpp \
+		debug/moc_mainwindow.cpp \
+		debug/moc_preferenceswindow.cpp
 OBJECTS       = debug/aboutwindow.o \
 		debug/addnewanime.o \
 		debug/anime.o \
@@ -113,71 +113,71 @@ OBJECTS       = debug/aboutwindow.o \
 		debug/moc_preferenceswindow.o
 
 DIST          = runTests.sh \
-		test/Makefile src\aboutwindow.h \
-		src\addnewanime.h \
-		src\anime.h \
-		src\animelist.h \
-		src\AnimelistManager.h \
-		src\AnimeListViewHelper.h \
-		src\AnwalicService.h \
-		src\editanimewindow.h \
-		src\errorview.h \
-		src\FilterAnimelist.h \
-		src\FilterByTag.h \
-		src\FilterHideAnimesWithNameOnly.h \
-		src\FilterHideMovies.h \
-		src\FilterHideOpenEndedAnimes.h \
-		src\FilterShowMovies.h \
-		src\FilterShowOpenEndedAnimes.h \
-		src\FilterShowStartedAnimes.h \
-		src\globals.h \
-		src\InternetUtilities.h \
-		src\ListType.h \
-		src\mainwindow.h \
-		src\memory.h \
-		src\preferences.h \
-		src\preferenceswindow.h \
-		src\resource.h \
-		src\resource1.h \
-		src\resource2.h \
-		src\saveload.h \
-		src\stringsDE.h \
-		src\stringsEN.h \
-		src\StringUtils.h \
-		src\GeneratedFiles\ui_aboutwindow.h \
-		src\GeneratedFiles\ui_addnewanime.h \
-		src\GeneratedFiles\ui_editanimewindow.h \
-		src\GeneratedFiles\ui_mainwindow.h \
-		src\GeneratedFiles\ui_preferenceswindow.h src\aboutwindow.cpp \
-		src\addnewanime.cpp \
-		src\anime.cpp \
-		src\animelist.cpp \
-		src\AnimelistManager.cpp \
-		src\AnimeListViewHelper.cpp \
-		src\anwalic_plugin_import.cpp \
-		src\AnwalicService.cpp \
-		src\editanimewindow.cpp \
-		src\errorview.cpp \
-		src\FilterAnimelist.cpp \
-		src\FilterByTag.cpp \
-		src\FilterHideAnimesWithNameOnly.cpp \
-		src\FilterHideMovies.cpp \
-		src\FilterHideOpenEndedAnimes.cpp \
-		src\FilterShowMovies.cpp \
-		src\FilterShowOpenEndedAnimes.cpp \
-		src\FilterShowStartedAnimes.cpp \
-		src\InternetUtilities.cpp \
-		src\main.cpp \
-		src\mainwindow.cpp \
-		src\memory.cpp \
-		src\preferences.cpp \
-		src\preferenceswindow.cpp \
-		src\saveload.cpp \
-		src\StringUtils.cpp
+		test/Makefile src/aboutwindow.h \
+		src/addnewanime.h \
+		src/anime.h \
+		src/animelist.h \
+		src/AnimelistManager.h \
+		src/AnimeListViewHelper.h \
+		src/AnwalicService.h \
+		src/editanimewindow.h \
+		src/errorview.h \
+		src/FilterAnimelist.h \
+		src/FilterByTag.h \
+		src/FilterHideAnimesWithNameOnly.h \
+		src/FilterHideMovies.h \
+		src/FilterHideOpenEndedAnimes.h \
+		src/FilterShowMovies.h \
+		src/FilterShowOpenEndedAnimes.h \
+		src/FilterShowStartedAnimes.h \
+		src/globals.h \
+		src/InternetUtilities.h \
+		src/ListType.h \
+		src/mainwindow.h \
+		src/memory.h \
+		src/preferences.h \
+		src/preferenceswindow.h \
+		src/resource.h \
+		src/resource1.h \
+		src/resource2.h \
+		src/saveload.h \
+		src/stringsDE.h \
+		src/stringsEN.h \
+		src/StringUtils.h \
+		src/GeneratedFiles/ui_aboutwindow.h \
+		src/GeneratedFiles/ui_addnewanime.h \
+		src/GeneratedFiles/ui_editanimewindow.h \
+		src/GeneratedFiles/ui_mainwindow.h \
+		src/GeneratedFiles/ui_preferenceswindow.h src/aboutwindow.cpp \
+		src/addnewanime.cpp \
+		src/anime.cpp \
+		src/animelist.cpp \
+		src/AnimelistManager.cpp \
+		src/AnimeListViewHelper.cpp \
+		src/anwalic_plugin_import.cpp \
+		src/AnwalicService.cpp \
+		src/editanimewindow.cpp \
+		src/errorview.cpp \
+		src/FilterAnimelist.cpp \
+		src/FilterByTag.cpp \
+		src/FilterHideAnimesWithNameOnly.cpp \
+		src/FilterHideMovies.cpp \
+		src/FilterHideOpenEndedAnimes.cpp \
+		src/FilterShowMovies.cpp \
+		src/FilterShowOpenEndedAnimes.cpp \
+		src/FilterShowStartedAnimes.cpp \
+		src/InternetUtilities.cpp \
+		src/main.cpp \
+		src/mainwindow.cpp \
+		src/memory.cpp \
+		src/preferences.cpp \
+		src/preferenceswindow.cpp \
+		src/saveload.cpp \
+		src/StringUtils.cpp
 QMAKE_TARGET  = anwalic
-DESTDIR        = debug\ #avoid trailing-slash linebreak
+DESTDIR        = debug/ #avoid trailing-slash linebreak
 TARGET         = anwalic.exe
-DESTDIR_TARGET = debug\anwalic.exe
+DESTDIR_TARGET = debug/anwalic.exe
 
 ####### Build rules
 
@@ -193,10 +193,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) anwalic.zip $(SOURCES) $(DIST) anwalic.pro ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\spec_pre.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\qdevice.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\device_config.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\common\sanitize.conf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\common\gcc-base.conf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\common\g++-base.conf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\common\angle.conf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\common\windows-vulkan.conf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\common\g++-win32.conf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\common\windows-desktop.conf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\qconfig.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3drender.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_axbase.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_axserver.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_bodymovin_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_charts.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_core.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_core_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_datavisualization.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_datavisualization_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_dbus.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_designer.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_gui.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_help.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_help_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_location.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_location_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_network.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_network_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_networkauth.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_networkauth_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_nfc.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_opengl.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_positioning.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_purchasing.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_purchasing_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qml.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3d.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3d_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3dassetimport.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3dassetimport_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3drender.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3drender_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3druntimerender.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3druntimerender_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3dutils.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick3dutils_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_repparser.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_script.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_script_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_scripttools.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_scripttools_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_scxml.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_sensors.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_serialport.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_sql.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_svg.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_testlib.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_uitools.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_virtualkeyboard_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_websockets.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_widgets.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_winextras.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_xml.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\qt_functions.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\qt_config.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\win32-g++\qmake.conf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\exclusive_builds.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\toolchain.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\default_pre.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\win32\default_pre.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\resolve_config.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\exclusive_builds_post.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\default_post.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\build_pass.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\precompile_header.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\warn_on.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\qt.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\resources_functions.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\resources.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\moc.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\win32\opengl.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\uic.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\qmake_use.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\file_copies.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\win32\windows.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\testcase_targets.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\exceptions.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\yacc.prf ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\lex.prf anwalic.pro ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\lib\Qt5Widgets.prl ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\lib\Qt5Gui.prl ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\lib\Qt5Core.prl ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\lib\qtmain.prl    ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\data\dummy.cpp src\aboutwindow.h src\addnewanime.h src\anime.h src\animelist.h src\AnimelistManager.h src\AnimeListViewHelper.h src\AnwalicService.h src\editanimewindow.h src\errorview.h src\FilterAnimelist.h src\FilterByTag.h src\FilterHideAnimesWithNameOnly.h src\FilterHideMovies.h src\FilterHideOpenEndedAnimes.h src\FilterShowMovies.h src\FilterShowOpenEndedAnimes.h src\FilterShowStartedAnimes.h src\globals.h src\InternetUtilities.h src\ListType.h src\mainwindow.h src\memory.h src\preferences.h src\preferenceswindow.h src\resource.h src\resource1.h src\resource2.h src\saveload.h src\stringsDE.h src\stringsEN.h src\StringUtils.h src\GeneratedFiles\ui_aboutwindow.h src\GeneratedFiles\ui_addnewanime.h src\GeneratedFiles\ui_editanimewindow.h src\GeneratedFiles\ui_mainwindow.h src\GeneratedFiles\ui_preferenceswindow.h  src\aboutwindow.cpp src\addnewanime.cpp src\anime.cpp src\animelist.cpp src\AnimelistManager.cpp src\AnimeListViewHelper.cpp src\anwalic_plugin_import.cpp src\AnwalicService.cpp src\editanimewindow.cpp src\errorview.cpp src\FilterAnimelist.cpp src\FilterByTag.cpp src\FilterHideAnimesWithNameOnly.cpp src\FilterHideMovies.cpp src\FilterHideOpenEndedAnimes.cpp src\FilterShowMovies.cpp src\FilterShowOpenEndedAnimes.cpp src\FilterShowStartedAnimes.cpp src\InternetUtilities.cpp src\main.cpp src\mainwindow.cpp src\memory.cpp src\preferences.cpp src\preferenceswindow.cpp src\saveload.cpp src\StringUtils.cpp src\aboutwindow.ui src\addnewanime.ui src\editanimewindow.ui src\mainwindow.ui src\preferenceswindow.ui    
+	$(ZIP) anwalic.zip $(SOURCES) $(DIST) anwalic.pro ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/spec_pre.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/qdevice.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/device_config.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/common/sanitize.conf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/common/gcc-base.conf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/common/g++-base.conf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/common/angle.conf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/win32/windows_vulkan_sdk.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/common/windows-vulkan.conf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/common/g++-win32.conf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/common/windows-desktop.conf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/qconfig.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3danimation.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3danimation_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dcore.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dcore_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dextras.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dextras_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dinput.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dinput_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dlogic.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dlogic_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquick.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquick_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickanimation.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickanimation_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickextras.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickextras_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickinput.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickinput_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickrender.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickrender_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickscene2d.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3dquickscene2d_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3drender.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_3drender_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_accessibility_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_axbase.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_axbase_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_axcontainer.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_axcontainer_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_axserver.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_axserver_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_bluetooth.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_bluetooth_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_bodymovin_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_bootstrap_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_charts.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_charts_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_concurrent.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_concurrent_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_core.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_core_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_datavisualization.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_datavisualization_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_dbus.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_dbus_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_designer.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_designer_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_designercomponents_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_devicediscovery_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_edid_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_egl_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_fb_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_fontdatabase_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_gamepad.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_gamepad_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_gui.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_gui_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_help.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_help_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_location.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_location_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_multimedia.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_multimedia_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_multimediawidgets.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_multimediawidgets_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_network.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_network_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_networkauth.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_networkauth_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_nfc.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_nfc_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_opengl.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_opengl_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_openglextensions.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_openglextensions_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_packetprotocol_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_platformcompositor_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_positioning.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_positioning_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_positioningquick.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_positioningquick_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_printsupport.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_printsupport_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_purchasing.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_purchasing_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qml.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qml_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qmldebug_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qmldevtools_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qmlmodels.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qmlmodels_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qmltest.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qmltest_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qmlworkerscript.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qmlworkerscript_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_qtmultimediaquicktools_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3d.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3d_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3dassetimport.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3dassetimport_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3drender.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3drender_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3druntimerender.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3druntimerender_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3dutils.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick3dutils_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quick_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quickcontrols2.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quickcontrols2_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quickparticles_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quickshapes_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quicktemplates2.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quicktemplates2_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quickwidgets.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_quickwidgets_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_remoteobjects.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_remoteobjects_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_repparser.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_repparser_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_script.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_script_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_scripttools.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_scripttools_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_scxml.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_scxml_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_sensors.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_sensors_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_serialbus.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_serialbus_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_serialport.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_serialport_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_sql.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_sql_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_svg.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_svg_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_testlib.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_testlib_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_texttospeech.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_texttospeech_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_theme_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_uiplugin.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_uitools.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_uitools_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_virtualkeyboard.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_virtualkeyboard_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_webchannel.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_webchannel_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_websockets.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_websockets_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_widgets.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_widgets_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_windowsuiautomation_support_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_winextras.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_winextras_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_xml.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_xml_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_xmlpatterns.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_xmlpatterns_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/modules/qt_lib_zlib_private.pri ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/qt_functions.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/qt_config.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++/qmake.conf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/spec_post.prf .qmake.stash ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/exclusive_builds.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/toolchain.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/default_pre.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/win32/default_pre.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/resolve_config.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/exclusive_builds_post.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/default_post.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/build_pass.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/precompile_header.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/warn_on.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/qt.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/resources_functions.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/resources.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/moc.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/win32/opengl.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/uic.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/qmake_use.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/file_copies.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/win32/windows.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/testcase_targets.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/exceptions.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/yacc.prf ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/lex.prf anwalic.pro ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Widgets.prl ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Gui.prl ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Core.prl ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/lib/qtmain.prl    ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/data/dummy.cpp src/aboutwindow.h src/addnewanime.h src/anime.h src/animelist.h src/AnimelistManager.h src/AnimeListViewHelper.h src/AnwalicService.h src/editanimewindow.h src/errorview.h src/FilterAnimelist.h src/FilterByTag.h src/FilterHideAnimesWithNameOnly.h src/FilterHideMovies.h src/FilterHideOpenEndedAnimes.h src/FilterShowMovies.h src/FilterShowOpenEndedAnimes.h src/FilterShowStartedAnimes.h src/globals.h src/InternetUtilities.h src/ListType.h src/mainwindow.h src/memory.h src/preferences.h src/preferenceswindow.h src/resource.h src/resource1.h src/resource2.h src/saveload.h src/stringsDE.h src/stringsEN.h src/StringUtils.h src/GeneratedFiles/ui_aboutwindow.h src/GeneratedFiles/ui_addnewanime.h src/GeneratedFiles/ui_editanimewindow.h src/GeneratedFiles/ui_mainwindow.h src/GeneratedFiles/ui_preferenceswindow.h  src/aboutwindow.cpp src/addnewanime.cpp src/anime.cpp src/animelist.cpp src/AnimelistManager.cpp src/AnimeListViewHelper.cpp src/anwalic_plugin_import.cpp src/AnwalicService.cpp src/editanimewindow.cpp src/errorview.cpp src/FilterAnimelist.cpp src/FilterByTag.cpp src/FilterHideAnimesWithNameOnly.cpp src/FilterHideMovies.cpp src/FilterHideOpenEndedAnimes.cpp src/FilterShowMovies.cpp src/FilterShowOpenEndedAnimes.cpp src/FilterShowStartedAnimes.cpp src/InternetUtilities.cpp src/main.cpp src/mainwindow.cpp src/memory.cpp src/preferences.cpp src/preferenceswindow.cpp src/saveload.cpp src/StringUtils.cpp src/aboutwindow.ui src/addnewanime.ui src/editanimewindow.ui src/mainwindow.ui src/preferenceswindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\aboutwindow.o debug\addnewanime.o debug\anime.o debug\animelist.o debug\AnimelistManager.o debug\AnimeListViewHelper.o debug\anwalic_plugin_import.o debug\AnwalicService.o debug\editanimewindow.o debug\errorview.o debug\FilterAnimelist.o debug\FilterByTag.o debug\FilterHideAnimesWithNameOnly.o debug\FilterHideMovies.o debug\FilterHideOpenEndedAnimes.o debug\FilterShowMovies.o debug\FilterShowOpenEndedAnimes.o debug\FilterShowStartedAnimes.o debug\InternetUtilities.o debug\main.o debug\mainwindow.o debug\memory.o debug\preferences.o debug\preferenceswindow.o debug\saveload.o debug\StringUtils.o debug\moc_aboutwindow.o debug\moc_addnewanime.o debug\moc_editanimewindow.o debug\moc_mainwindow.o debug\moc_preferenceswindow.o
+	-$(DEL_FILE) debug/aboutwindow.o debug/addnewanime.o debug/anime.o debug/animelist.o debug/AnimelistManager.o debug/AnimeListViewHelper.o debug/anwalic_plugin_import.o debug/AnwalicService.o debug/editanimewindow.o debug/errorview.o debug/FilterAnimelist.o debug/FilterByTag.o debug/FilterHideAnimesWithNameOnly.o debug/FilterHideMovies.o debug/FilterHideOpenEndedAnimes.o debug/FilterShowMovies.o debug/FilterShowOpenEndedAnimes.o debug/FilterShowStartedAnimes.o debug/InternetUtilities.o debug/main.o debug/mainwindow.o debug/memory.o debug/preferences.o debug/preferenceswindow.o debug/saveload.o debug/StringUtils.o debug/moc_aboutwindow.o debug/moc_addnewanime.o debug/moc_editanimewindow.o debug/moc_mainwindow.o debug/moc_preferenceswindow.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -217,13 +217,13 @@ compiler_rcc_make_all:
 compiler_rcc_clean:
 compiler_moc_predefs_make_all: debug/moc_predefs.h
 compiler_moc_predefs_clean:
-	-$(DEL_FILE) debug\moc_predefs.h
+	-$(DEL_FILE) debug/moc_predefs.h
 debug/moc_predefs.h: ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/data/dummy.cpp
-	g++ -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -dM -E -o debug\moc_predefs.h ..\..\..\Qt\Qt5.14.2\5.14.2\mingw73_32\mkspecs\features\data\dummy.cpp
+	g++ -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -dM -E -o debug/moc_predefs.h ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: debug/moc_aboutwindow.cpp debug/moc_addnewanime.cpp debug/moc_editanimewindow.cpp debug/moc_mainwindow.cpp debug/moc_preferenceswindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_aboutwindow.cpp debug\moc_addnewanime.cpp debug\moc_editanimewindow.cpp debug\moc_mainwindow.cpp debug\moc_preferenceswindow.cpp
+	-$(DEL_FILE) debug/moc_aboutwindow.cpp debug/moc_addnewanime.cpp debug/moc_editanimewindow.cpp debug/moc_mainwindow.cpp debug/moc_preferenceswindow.cpp
 debug/moc_aboutwindow.cpp: src/aboutwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdialog.h \
@@ -333,7 +333,7 @@ debug/moc_aboutwindow.cpp: src/aboutwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QString \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src\aboutwindow.h -o debug\moc_aboutwindow.cpp
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe' $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src/aboutwindow.h -o debug/moc_aboutwindow.cpp
 
 debug/moc_addnewanime.cpp: src/addnewanime.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
@@ -444,7 +444,7 @@ debug/moc_addnewanime.cpp: src/addnewanime.h \
 		src/anime.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src\addnewanime.h -o debug\moc_addnewanime.cpp
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe' $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src/addnewanime.h -o debug/moc_addnewanime.cpp
 
 debug/moc_editanimewindow.cpp: src/editanimewindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
@@ -567,7 +567,7 @@ debug/moc_editanimewindow.cpp: src/editanimewindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src\editanimewindow.h -o debug\moc_editanimewindow.cpp
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe' $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src/editanimewindow.h -o debug/moc_editanimewindow.cpp
 
 debug/moc_mainwindow.cpp: src/mainwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMainWindow \
@@ -699,7 +699,7 @@ debug/moc_mainwindow.cpp: src/mainwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QStringList \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src\mainwindow.h -o debug\moc_mainwindow.cpp
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe' $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src/mainwindow.h -o debug/moc_mainwindow.cpp
 
 debug/moc_preferenceswindow.cpp: src/preferenceswindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
@@ -812,7 +812,7 @@ debug/moc_preferenceswindow.cpp: src/preferenceswindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QStringList \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src\preferenceswindow.h -o debug\moc_preferenceswindow.cpp
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe' $(DEFINES) --include C:/Projects/github/Anwalic/debug/moc_predefs.h -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -IC:/Projects/github/Anwalic -IC:/Projects/github/Anwalic/src -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++ -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/mingw32 -Ic:/mingw/lib/gcc/mingw32/9.2.0/include/c++/backward -Ic:/mingw/lib/gcc/mingw32/9.2.0/include -Ic:/mingw/include -Ic:/mingw/lib/gcc/mingw32/9.2.0/include-fixed src/preferenceswindow.h -o debug/moc_preferenceswindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -823,23 +823,23 @@ compiler_uic_clean:
 	-$(DEL_FILE) ui_aboutwindow.h ui_addnewanime.h ui_editanimewindow.h ui_mainwindow.h ui_preferenceswindow.h
 ui_aboutwindow.h: src/aboutwindow.ui \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/uic.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe src\aboutwindow.ui -o ui_aboutwindow.h
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe' src/aboutwindow.ui -o ui_aboutwindow.h
 
 ui_addnewanime.h: src/addnewanime.ui \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/uic.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe src\addnewanime.ui -o ui_addnewanime.h
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe' src/addnewanime.ui -o ui_addnewanime.h
 
 ui_editanimewindow.h: src/editanimewindow.ui \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/uic.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe src\editanimewindow.ui -o ui_editanimewindow.h
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe' src/editanimewindow.ui -o ui_editanimewindow.h
 
 ui_mainwindow.h: src/mainwindow.ui \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/uic.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe src\mainwindow.ui -o ui_mainwindow.h
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe' src/mainwindow.ui -o ui_mainwindow.h
 
 ui_preferenceswindow.h: src/preferenceswindow.ui \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/uic.exe
-	C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe src\preferenceswindow.ui -o ui_preferenceswindow.h
+	'C:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\uic.exe' src/preferenceswindow.ui -o ui_preferenceswindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -961,27 +961,11 @@ debug/aboutwindow.o: src/aboutwindow.cpp src/aboutwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QString \
 		ui_aboutwindow.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QIcon \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
 		src/memory.h \
 		src/anime.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QPixmap \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QImage
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\aboutwindow.o src\aboutwindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/aboutwindow.o src/aboutwindow.cpp
 
 debug/addnewanime.o: src/addnewanime.cpp src/addnewanime.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
@@ -1091,34 +1075,6 @@ debug/addnewanime.o: src/addnewanime.cpp src/addnewanime.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		src/anime.h \
 		ui_addnewanime.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QIcon \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QCheckBox \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qcheckbox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QTextEdit \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtextedit.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextdocument.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		src/globals.h \
@@ -1126,7 +1082,7 @@ debug/addnewanime.o: src/addnewanime.cpp src/addnewanime.h \
 		src/stringsEN.h \
 		src/errorview.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\addnewanime.o src\addnewanime.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/addnewanime.o src/addnewanime.cpp
 
 debug/anime.o: src/anime.cpp src/anime.h \
 		src/globals.h \
@@ -1651,12 +1607,12 @@ debug/anime.o: src/anime.cpp src/anime.h \
 		src/boost/algorithm/string/formatter.hpp \
 		src/boost/algorithm/string/detail/formatter.hpp \
 		src/boost/algorithm/string/erase.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\anime.o src\anime.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/anime.o src/anime.cpp
 
 debug/animelist.o: src/animelist.cpp src/animelist.h \
 		src/anime.h \
 		src/memory.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\animelist.o src\animelist.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/animelist.o src/animelist.cpp
 
 debug/AnimelistManager.o: src/AnimelistManager.cpp src/AnimelistManager.h \
 		src/animelist.h \
@@ -1770,7 +1726,7 @@ debug/AnimelistManager.o: src/AnimelistManager.cpp src/AnimelistManager.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvector2d.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\AnimelistManager.o src\AnimelistManager.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/AnimelistManager.o src/AnimelistManager.cpp
 
 debug/AnimeListViewHelper.o: src/AnimeListViewHelper.cpp src/AnimeListViewHelper.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QStringListModel \
@@ -1843,7 +1799,7 @@ debug/AnimeListViewHelper.o: src/AnimeListViewHelper.cpp src/AnimeListViewHelper
 		src/animelist.h \
 		src/anime.h \
 		src/memory.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\AnimeListViewHelper.o src\AnimeListViewHelper.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/AnimeListViewHelper.o src/AnimeListViewHelper.cpp
 
 debug/anwalic_plugin_import.o: src/anwalic_plugin_import.cpp ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QtPlugin \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qplugin.h \
@@ -1906,7 +1862,7 @@ debug/anwalic_plugin_import.o: src/anwalic_plugin_import.cpp ../../../Qt/Qt5.14.
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\anwalic_plugin_import.o src\anwalic_plugin_import.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/anwalic_plugin_import.o src/anwalic_plugin_import.cpp
 
 debug/AnwalicService.o: src/AnwalicService.cpp src/AnwalicService.h \
 		src/AnimelistManager.h \
@@ -2453,7 +2409,7 @@ debug/AnwalicService.o: src/AnwalicService.cpp src/AnwalicService.h \
 		src/boost/algorithm/string/constants.hpp \
 		src/boost/algorithm/string/detail/finder.hpp \
 		src/boost/algorithm/string/compare.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\AnwalicService.o src\AnwalicService.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/AnwalicService.o src/AnwalicService.cpp
 
 debug/editanimewindow.o: src/editanimewindow.cpp src/editanimewindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
@@ -2575,43 +2531,11 @@ debug/editanimewindow.o: src/editanimewindow.cpp src/editanimewindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstringlistmodel.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
 		ui_editanimewindow.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QIcon \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPlainTextEdit \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qplaintextedit.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtextedit.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextdocument.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qabstracttextdocumentlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qglyphrun.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qrawfont.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qfontdatabase.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		src/globals.h \
 		src/stringsEN.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\editanimewindow.o src\editanimewindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/editanimewindow.o src/editanimewindow.cpp
 
 debug/errorview.o: src/errorview.cpp src/errorview.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -2729,7 +2653,7 @@ debug/errorview.o: src/errorview.cpp src/errorview.h \
 		src/stringsEN.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QIcon \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\errorview.o src\errorview.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/errorview.o src/errorview.cpp
 
 debug/FilterAnimelist.o: src/FilterAnimelist.cpp src/FilterAnimelist.h \
 		src/AnwalicService.h \
@@ -2860,7 +2784,7 @@ debug/FilterAnimelist.o: src/FilterAnimelist.cpp src/FilterAnimelist.h \
 		src/aboutwindow.h \
 		src/preferenceswindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QStringList
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\FilterAnimelist.o src\FilterAnimelist.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/FilterAnimelist.o src/FilterAnimelist.cpp
 
 debug/FilterByTag.o: src/FilterByTag.cpp src/FilterByTag.h \
 		src/FilterAnimelist.h \
@@ -3408,7 +3332,7 @@ debug/FilterByTag.o: src/FilterByTag.cpp src/FilterByTag.h \
 		src/boost/algorithm/string/constants.hpp \
 		src/boost/algorithm/string/detail/finder.hpp \
 		src/boost/algorithm/string/compare.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\FilterByTag.o src\FilterByTag.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/FilterByTag.o src/FilterByTag.cpp
 
 debug/FilterHideAnimesWithNameOnly.o: src/FilterHideAnimesWithNameOnly.cpp src/FilterHideAnimesWithNameOnly.h \
 		src/FilterAnimelist.h \
@@ -3492,7 +3416,7 @@ debug/FilterHideAnimesWithNameOnly.o: src/FilterHideAnimesWithNameOnly.cpp src/F
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		src/globals.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\FilterHideAnimesWithNameOnly.o src\FilterHideAnimesWithNameOnly.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/FilterHideAnimesWithNameOnly.o src/FilterHideAnimesWithNameOnly.cpp
 
 debug/FilterHideMovies.o: src/FilterHideMovies.cpp src/FilterHideMovies.h \
 		src/FilterAnimelist.h \
@@ -3575,7 +3499,7 @@ debug/FilterHideMovies.o: src/FilterHideMovies.cpp src/FilterHideMovies.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcontiguouscache.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer_impl.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\FilterHideMovies.o src\FilterHideMovies.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/FilterHideMovies.o src/FilterHideMovies.cpp
 
 debug/FilterHideOpenEndedAnimes.o: src/FilterHideOpenEndedAnimes.cpp src/FilterHideOpenEndedAnimes.h \
 		src/FilterAnimelist.h \
@@ -3659,7 +3583,7 @@ debug/FilterHideOpenEndedAnimes.o: src/FilterHideOpenEndedAnimes.cpp src/FilterH
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		src/globals.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\FilterHideOpenEndedAnimes.o src\FilterHideOpenEndedAnimes.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/FilterHideOpenEndedAnimes.o src/FilterHideOpenEndedAnimes.cpp
 
 debug/FilterShowMovies.o: src/FilterShowMovies.cpp src/FilterShowMovies.h \
 		src/FilterAnimelist.h \
@@ -3742,7 +3666,7 @@ debug/FilterShowMovies.o: src/FilterShowMovies.cpp src/FilterShowMovies.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcontiguouscache.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer_impl.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\FilterShowMovies.o src\FilterShowMovies.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/FilterShowMovies.o src/FilterShowMovies.cpp
 
 debug/FilterShowOpenEndedAnimes.o: src/FilterShowOpenEndedAnimes.cpp src/FilterShowOpenEndedAnimes.h \
 		src/FilterAnimelist.h \
@@ -3826,7 +3750,7 @@ debug/FilterShowOpenEndedAnimes.o: src/FilterShowOpenEndedAnimes.cpp src/FilterS
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer_impl.h \
 		src/globals.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\FilterShowOpenEndedAnimes.o src\FilterShowOpenEndedAnimes.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/FilterShowOpenEndedAnimes.o src/FilterShowOpenEndedAnimes.cpp
 
 debug/FilterShowStartedAnimes.o: src/FilterShowStartedAnimes.cpp src/FilterShowStartedAnimes.h \
 		src/FilterAnimelist.h \
@@ -3960,7 +3884,7 @@ debug/FilterShowStartedAnimes.o: src/FilterShowStartedAnimes.cpp src/FilterShowS
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QStringList \
 		src/errorview.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\FilterShowStartedAnimes.o src\FilterShowStartedAnimes.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/FilterShowStartedAnimes.o src/FilterShowStartedAnimes.cpp
 
 debug/InternetUtilities.o: src/InternetUtilities.cpp src/InternetUtilities.h \
 		src/stringsEN.h \
@@ -4074,7 +3998,7 @@ debug/InternetUtilities.o: src/InternetUtilities.cpp src/InternetUtilities.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qdesktopservices.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstandardpaths.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QUrl
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\InternetUtilities.o src\InternetUtilities.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/InternetUtilities.o src/InternetUtilities.cpp
 
 debug/main.o: src/main.cpp src/mainwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMainWindow \
@@ -4223,7 +4147,7 @@ debug/main.o: src/main.cpp src/mainwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		src/errorview.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o src\main.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/main.o src/main.cpp
 
 debug/mainwindow.o: src/mainwindow.cpp src/mainwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMainWindow \
@@ -4354,58 +4278,12 @@ debug/mainwindow.o: src/mainwindow.cpp src/mainwindow.h \
 		src/preferenceswindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QStringList \
 		ui_mainwindow.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QIcon \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QAction \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qaction.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFrame \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QGridLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QListView \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlistview.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractitemview.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractscrollarea.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvalidator.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qregularexpression.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qslider.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyle.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMenu \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmenu.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMenuBar \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmenubar.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QSpacerItem \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QStatusBar \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstatusbar.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		src/globals.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QFont \
 		src/errorview.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
 		src/memory.h \
 		src/stringsEN.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QDesktopServices \
@@ -4415,6 +4293,7 @@ debug/mainwindow.o: src/mainwindow.cpp src/mainwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QPalette \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
@@ -4436,11 +4315,11 @@ debug/mainwindow.o: src/mainwindow.cpp src/mainwindow.h \
 		src/FilterHideAnimesWithNameOnly.h \
 		src/FilterByTag.h \
 		src/FilterShowStartedAnimes.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o src\mainwindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/mainwindow.o src/mainwindow.cpp
 
 debug/memory.o: src/memory.cpp src/memory.h \
 		src/anime.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\memory.o src\memory.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/memory.o src/memory.cpp
 
 debug/preferences.o: src/preferences.cpp src/preferences.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QSize \
@@ -4551,7 +4430,7 @@ debug/preferences.o: src/preferences.cpp src/preferences.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvector2d.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		src/globals.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\preferences.o src\preferences.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/preferences.o src/preferences.cpp
 
 debug/preferenceswindow.o: src/preferenceswindow.cpp src/preferenceswindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
@@ -4663,44 +4542,6 @@ debug/preferenceswindow.o: src/preferenceswindow.cpp src/preferenceswindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QSize \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QStringList \
 		ui_preferenceswindow.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QIcon \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QCheckBox \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qcheckbox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QComboBox \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qcombobox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvalidator.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qregularexpression.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qslider.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyle.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QDesktopServices \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qdesktopservices.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qstandardpaths.h \
@@ -4712,7 +4553,7 @@ debug/preferenceswindow.o: src/preferenceswindow.cpp src/preferenceswindow.h \
 		src/errorview.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
 		src/stringsEN.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\preferenceswindow.o src\preferenceswindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/preferenceswindow.o src/preferenceswindow.cpp
 
 debug/saveload.o: src/saveload.cpp src/saveload.h \
 		src/anime.h \
@@ -4828,25 +4669,25 @@ debug/saveload.o: src/saveload.cpp src/saveload.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDate \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdatetime.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QTime
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\saveload.o src\saveload.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/saveload.o src/saveload.cpp
 
 debug/StringUtils.o: src/StringUtils.cpp src/StringUtils.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\StringUtils.o src\StringUtils.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/StringUtils.o src/StringUtils.cpp
 
 debug/moc_aboutwindow.o: debug/moc_aboutwindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_aboutwindow.o debug\moc_aboutwindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/moc_aboutwindow.o debug/moc_aboutwindow.cpp
 
 debug/moc_addnewanime.o: debug/moc_addnewanime.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_addnewanime.o debug\moc_addnewanime.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/moc_addnewanime.o debug/moc_addnewanime.cpp
 
 debug/moc_editanimewindow.o: debug/moc_editanimewindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_editanimewindow.o debug\moc_editanimewindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/moc_editanimewindow.o debug/moc_editanimewindow.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_mainwindow.o debug\moc_mainwindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/moc_mainwindow.o debug/moc_mainwindow.cpp
 
 debug/moc_preferenceswindow.o: debug/moc_preferenceswindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_preferenceswindow.o debug\moc_preferenceswindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/moc_preferenceswindow.o debug/moc_preferenceswindow.cpp
 
 ####### Install
 

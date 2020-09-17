@@ -69,15 +69,23 @@ We will create a standalone version of the application with
 * install MinGW
 * install [Qt 5.14.2](https://download.qt.io/official_releases/qt/5.14/5.14.2/)
 * run `windows_build.bat`
+    * builds, but cannot link qt static plugins
+        * try qt static build (build Qt from source)
+
 
 ### 4.2.2 Static Build (without DLLs)
-You can also create a static compiled version. Build and configure Qt from source, so it builds a static compiled version of Anwalic, see below.
+For this we must build Qt from source.
 
-You can also put all dependencies inside the executable to have no shared
-libraries / DLLs. No shared libraries like libQt5Core.dll or
-libQt5Core.so.5.13.0). Therefore, you have to recompile Qt from sources.
+I use Cygwin to install missing libraries such as llvm, clang, libclang, Ninja, ... Add the bin directory of cygwin to Path. Restart cmd if you added something to Path.
 
-I show how I once configured Qt to create static builds on Windows. This documentation has been done on linux, but also applies to Windows. Make sure to have all needed tools accessible from command line.
+* open cmd from Qt installation which sets up Qt environment
+    * Press Windows+Key, search folder "Qt 5.14.2". Open cmd `Qt 5.14.2 (MinGW 7.3.0 32-bit)`
+    * cmd displays: Setting up environment for Qt usage...
+* `cd C:\Qt\Qt5.14.2\5.14.2\Src`
+* `configure.bat -static -release -prefix C:\Qt\Qt5.14.2\5.14.2\static-build -platform win32-g++ -nomake tests -nomake examples -opengl desktop`
+* `mingw32-make -j$(nproc)`
+* `mingw32-make install`
+
 
 * create a static compiled version of Qt by compiling Qt from source
   * go inside the Qt source folder and run the following commands (adjust paths for Qt source directory)

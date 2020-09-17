@@ -5,8 +5,8 @@
 TEMPLATE = app
 TARGET = anwalic
 INCLUDEPATH += src/
+CONFIG += static
 CONFIG += release c++11
-#CONFIG += static
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 unix {
