@@ -51,7 +51,7 @@ We will create a standalone version of the application with
       `~/Qt/5.14.2/gcc_64/bin/qmake -r`
     * for **make deploy** you actually need a CQtDeployer installed. You build
       your CQtDeployer from source by using an already compiled version of
-      CQtDeployer. So, you you have to download 
+      CQtDeployer. So, you have to download 
       [CQtDeployer from snap](https://snapcraft.io/cqtdeployer) and then run
       `make deploy`
         * if you do not have snap on your system, install it with `sudo apt-get install snap snapd`
