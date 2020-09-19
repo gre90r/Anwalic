@@ -36,7 +36,7 @@ We will create a standalone version of the application with
 
 
 ## 4.1 Build on Linux
-1. run `install.sh`
+1. run `1_install.sh`
   * this compiles all source files and creates an executable
   * run as root if you also want the desktop icon to be installed. Otherwise
     you can copy the created desktop icon file from `./icon/desktop-icon/Anwalic.desktop`
@@ -55,7 +55,7 @@ We will create a standalone version of the application with
       [CQtDeployer from snap](https://snapcraft.io/cqtdeployer) and then run
       `make deploy`
         * if you do not have snap on your system, install it with `sudo apt-get install snap snapd`
-3. run `deploy.sh`
+3. run `2_deploy.sh`
   * this will create a standalone version of the application
   * it copies all needed libraries, resources and the executable into the folder
     ./deploy/linux
@@ -64,39 +64,27 @@ We will create a standalone version of the application with
 
 
 ## 4.2 Build on Windows
+Make sure to have all build tools on your system and available from command line
 
 ### 4.2.1 Dynamic Build (with DLLs)
-* install MinGW
+* install [MinGW](http://www.mingw.org/)
 * install [Qt 5.14.2](https://download.qt.io/official_releases/qt/5.14/5.14.2/)
 * run `windows_build.bat`
     * builds, but cannot link qt static plugins
-        * try qt static build (build Qt from source)
-
+        * try qt static build (build Qt from source), see below: Static Build (without DLLs)
 
 ### 4.2.2 Static Build (without DLLs)
 For this we must build Qt from source.
 
-I use Cygwin to install missing libraries such as llvm, clang, libclang, Ninja, ... Add the bin directory of cygwin to Path. Restart cmd if you added something to Path.
+I use Cygwin to install missing libraries such as llvm, clang, libclang, Ninja, ... Add the bin directory of cygwin to Path. You add directories to Path variable by typing "environment variables" into Windows Search. To go to Windows Search, press Windows+Key and start typing. Restart cmd if you added something to Path.
 
-* open cmd from Qt installation which sets up Qt environment
+* open a cmd from Qt installation which sets up Qt environment
     * Press Windows+Key, search folder "Qt 5.14.2". Open cmd `Qt 5.14.2 (MinGW 7.3.0 32-bit)`
     * cmd displays: Setting up environment for Qt usage...
 * `cd C:\Qt\Qt5.14.2\5.14.2\Src`
 * `configure.bat -static -release -prefix C:\Qt\Qt5.14.2\5.14.2\static-build -platform win32-g++ -nomake tests -nomake examples -opengl desktop`
-* `mingw32-make -j$(nproc)`
+* `mingw32-make`
 * `mingw32-make install`
-
-
-* create a static compiled version of Qt by compiling Qt from source
-  * go inside the Qt source folder and run the following commands (adjust paths for Qt source directory)
-  * create the "static-build" folder beforehand
-  * `gregor@6r390r:~/.Qt/5.13.0/Src$ ./configure -static -prefix /home/gregor/.Qt/5.13.0/static-build -skip webengine -nomake tools -nomake tests -nomake examples`
-    * if you are already in the Src folder you cannot put a dot for -prefix, you have to put the whole path. Otherwise some components cannot be found.
-  * `make -j8` or `make -j$(nproc)`
-    * -j8 will create 8 threads for building Qt. So adjust this value for
-      the number of processors you have.
-    * if the build fails, some dependencies might be missing. Read the error log on console.
-  * `make -j8 install`
 
 for additional information on building Qt from source, see also https://wiki.qt.io/Building_Qt_5_from_Git#Getting_the_source_code
 
